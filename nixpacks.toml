@@ -3,7 +3,7 @@ nixPkgs = ["python311"]
 
 [phases.install]
 cmds = [
-  "cd 'Emotion Detection' && pip install -r requirements.txt"
+  "cd 'Emotion Detection' && python3 -m pip install --upgrade pip && python3 -m pip install -r requirements.txt"
 ]
 
 [phases.build]
