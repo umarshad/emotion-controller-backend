@@ -1,0 +1,84 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.build/
+.buildlog/
+.history
+.svn/
+.swiftpm/
+migrate_working_dir/
+
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# The .vscode folder contains launch configuration and tasks you configure in
+# VS Code which you may wish to be included in version control, so this line
+# is commented out by default.
+#.vscode/
+
+# Flutter/Dart/Pub related
+**/doc/api/
+**/ios/Flutter/.last_build_id
+.dart_tool/
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+/build/
+/coverage/
+
+# Symbolication related
+app.*.symbols
+
+# Obfuscation related
+app.*.map.json
+
+# Android Studio will place build artifacts here
+/android/app/debug
+/android/app/profile
+/android/app/release
+
+# Environment variables and secrets
+.env
+.env.local
+.env.production
+*.env
+Emotion Detection/.env
+Emotion Detection/.env.*
+
+# API Keys and sensitive data
+**/api_keys.json
+!**/api_keys.json.example
+**/secrets.json
+**/*secret*
+**/*key*
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+
+# Model files - INCLUDED for deployment (needed for Render)
+# Model files are large but required for the API to work
+# If you need to exclude them, uncomment the lines below and use Git LFS instead
+# *.h5
+# *.hdf5
+# *.pb
+# *.pkl
+# *.pickle
+
+# Keep example files
+!.env.example
+!api_keys.json.example

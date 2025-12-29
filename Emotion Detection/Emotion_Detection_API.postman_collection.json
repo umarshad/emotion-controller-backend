@@ -1,0 +1,247 @@
+{
+	"info": {
+		"name": "Emotion Detection API",
+		"description": "Complete API collection for Emotion Detection with authentication and all endpoints",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:5000",
+			"type": "string"
+		},
+		{
+			"key": "api_key",
+			"value": "emotion-api-postman-9876543210fedcba",
+			"type": "string"
+		}
+	],
+	"item": [
+		{
+			"name": "Public Endpoints",
+			"item": [
+				{
+					"name": "Health Check",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/v1/health",
+							"host": ["{{base_url}}"],
+							"path": ["api", "v1", "health"]
+						},
+						"description": "Check if API server and model are loaded correctly. No authentication required."
+					},
+					"response": []
+				},
+				{
+					"name": "API Info",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/v1/info",
+							"host": ["{{base_url}}"],
+							"path": ["api", "v1", "info"]
+						},
+						"description": "Get API information including version, supported emotions, and endpoints. No authentication required."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Protected Endpoints",
+			"item": [
+				{
+					"name": "Detect Emotion - Valid Request",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-API-Key",
+								"value": "{{api_key}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"image\": \"base64_encoded_image_here\",\n    \"format\": \"jpeg\",\n    \"timestamp\": \"2024-01-20T15:53:24Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1/detect-emotion",
+							"host": ["{{base_url}}"],
+							"path": ["api", "v1", "detect-emotion"]
+						},
+						"description": "Detect emotion from a base64-encoded image. Requires valid API key."
+					},
+					"response": []
+				},
+				{
+					"name": "Detect Emotion - Invalid API Key",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-API-Key",
+								"value": "invalid-api-key-12345",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"image\": \"base64_encoded_image_here\",\n    \"format\": \"jpeg\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1/detect-emotion",
+							"host": ["{{base_url}}"],
+							"path": ["api", "v1", "detect-emotion"]
+						},
+						"description": "Test error handling for invalid API key. Should return 401 Unauthorized."
+					},
+					"response": []
+				},
+				{
+					"name": "Detect Emotion - Missing API Key",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"image\": \"base64_encoded_image_here\",\n    \"format\": \"jpeg\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1/detect-emotion",
+							"host": ["{{base_url}}"],
+							"path": ["api", "v1", "detect-emotion"]
+						},
+						"description": "Test error handling for missing API key. Should return 401 Unauthorized."
+					},
+					"response": []
+				},
+				{
+					"name": "Detect Emotion - Missing Image Field",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-API-Key",
+								"value": "{{api_key}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"format\": \"jpeg\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1/detect-emotion",
+							"host": ["{{base_url}}"],
+							"path": ["api", "v1", "detect-emotion"]
+						},
+						"description": "Test error handling for missing image field. Should return 400 Bad Request."
+					},
+					"response": []
+				},
+				{
+					"name": "Detect Emotion - Invalid Image Format",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-API-Key",
+								"value": "{{api_key}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"image\": \"base64_encoded_image_here\",\n    \"format\": \"gif\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1/detect-emotion",
+							"host": ["{{base_url}}"],
+							"path": ["api", "v1", "detect-emotion"]
+						},
+						"description": "Test error handling for invalid image format. Should return 415 Unsupported Media Type."
+					},
+					"response": []
+				},
+				{
+					"name": "API Statistics",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-API-Key",
+								"value": "{{api_key}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/v1/stats",
+							"host": ["{{base_url}}"],
+							"path": ["api", "v1", "stats"]
+						},
+						"description": "Get API statistics including request counts, success rates, and processing times. Requires valid API key."
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
+
+
+

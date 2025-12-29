@@ -1,0 +1,15 @@
+{
+  "api_keys": [
+    "your-production-key-1",
+    "your-production-key-2",
+    "your-production-key-3"
+  ],
+  "description": "API keys for Emotion Detection API",
+  "usage": {
+    "your-production-key-1": "Production key for mobile app",
+    "your-production-key-2": "Production key for web clients",
+    "your-production-key-3": "Production key for testing"
+  },
+  "note": "In production, store keys in environment variables (EMOTION_API_KEYS) for security. Never commit actual keys to git."
+}
+

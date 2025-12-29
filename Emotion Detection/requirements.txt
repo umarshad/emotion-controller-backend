@@ -1,0 +1,8 @@
+numpy==1.22.0
+opencv-python==4.2.0.32
+tensorflow==2.9.3
+streamlit
+flask
+flask-cors
+gunicorn==21.2.0
+python-dotenv==1.0.0

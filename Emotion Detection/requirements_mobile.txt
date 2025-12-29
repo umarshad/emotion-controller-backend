@@ -1,0 +1,19 @@
+# Mobile-Only Requirements for Emotion Detection API Server
+# This file contains only the dependencies needed for the Flask API server
+# Streamlit is NOT included as it's only needed for the web interface (detection.py)
+
+# Web Framework
+flask>=2.0.0
+flask-cors>=3.0.0
+
+# Computer Vision and Image Processing
+opencv-python>=4.5.0
+numpy>=1.22.0
+
+# Machine Learning
+tensorflow==2.9.3
+
+# Note: streamlit is NOT required for the API server
+# It's only needed if you want to run the Streamlit web app (detection.py)
+
+
