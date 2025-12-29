@@ -12,5 +12,5 @@ cmds = [
 ]
 
 [start]
-cmd = "cd 'Emotion Detection' && source venv/bin/activate && gunicorn api_server:app --bind 0.0.0.0:$PORT --workers 2 --timeout 120 --access-logfile - --error-logfile -"
+cmd = "cd 'Emotion Detection' && venv/bin/gunicorn api_server:app --bind 0.0.0.0:$PORT --workers 2 --timeout 120 --access-logfile - --error-logfile -"
 
