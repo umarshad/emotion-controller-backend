@@ -297,6 +297,11 @@ def detect_emotion_in_image(image_array, model, face_cascade):
         for idx in top_indices
     ]
     
+    # Debug logging: Log all emotion probabilities for troubleshooting
+    logger.debug(f"Emotion detection probabilities: {emotion_probs}")
+    logger.debug(f"Primary emotion: {primary_emotion} (confidence: {primary_confidence:.3f})")
+    logger.debug(f"Top 3 emotions: {top_emotions}")
+    
     return {
         "primary_emotion": primary_emotion,
         "primary_confidence": primary_confidence,

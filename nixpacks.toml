@@ -1,0 +1,21 @@
+[providers]
+python = "3.11"
+
+[phases.setup]
+nixPkgs = ["python311"]
+
+[phases.install]
+cmds = [
+  "cd 'Emotion Detection'",
+  "pip install -r requirements.txt"
+]
+
+[phases.build]
+cmds = [
+  "cd 'Emotion Detection'",
+  "echo 'Build complete'"
+]
+
+[start]
+cmd = "cd 'Emotion Detection' && gunicorn api_server:app --bind 0.0.0.0:$PORT --workers 2 --timeout 120 --access-logfile - --error-logfile -"
+
